@@ -1,0 +1,79 @@
+{%extends 'index.html'%}
+{%block content%}  
+
+  
+  <!-- Board 영역 -->
+  <div class="container mt-5">
+    <div class="card-deck">
+      {% for board in object_list %}
+        <div class="card mb-4 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">{{board.title}}</h5>
+            <p class="card-text">{{board.content}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted">{{board.author}}</small>
+              <small class="text-muted">{{board.create_date}}</small>
+            </div>
+            <a href="{{board.get_absolute_url}}" class="stretched-link"></a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  
+    <!-- pagination 영역 -->
+    <br>
+    {% if page_obj.paginator.count >= page_obj.paginator.per_page %}
+    <ul class="pagination justify-content-center">
+      {% if page_obj.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_obj.previous_page_number }}">이전</a>
+        </li>
+      {% else %}
+        <li class="page-item disabled">
+          <a class="page-link" href="#">이전</a>
+        </li>
+      {% endif %}
+      {% for page_number in page_obj.paginator.page_range  %}
+        {% if page_number >= page_obj.number|add:-3 and page_number <= page_obj.number|add:3 %}
+          {% if page_number == page_obj.number %}
+            <li class="page-item active">
+              <a class="page-link" href="?page={{page_number}}">{{page_number}}</a>
+            </li>
+          {% else %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{page_number}}">{{page_number}}</a>
+            </li>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      {% if page_obj.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_obj.next_page_number }}">다음</a>
+        </li>
+      {% else %}
+        <li class="page-item disabled">
+          <a class="page-link" href="#">다음</a>
+        </li>
+      {% endif %}
+    </ul>
+    {% endif %}
+  </div>
+</section><section class="display-7" style="padding: 0;align-items: center;justify-content: center;flex-wrap: wrap;    align-content: center;display: flex;position: relative;height: 0rem;"><a href="" style="flex: 1 1;height: 4rem;position: absolute;width: 100%;z-index: 1;"><img alt="" style="height: 4rem;" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a><p style="margin: 0;text-align: center;" class="display-7"></p><a style="z-index:1" href=""></a></section><script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="/assets/smoothscroll/smooth-scroll.js"></script>  <script src="/assets/ytplayer/index.js"></script>  <script src="/assets/dropdown/js/navbar-dropdown.js"></script>  <script src="/assets/mbr-tabs/mbr-tabs.js"></script>  <script src="/assets/theme/js/script.js"></script>  
+  
+  
+<div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
+   <input name="animation" type="hidden">
+
+{%endblock%}
+
+{% block script %}
+<script type='text/javascript'>
+  $(document).ready(function() {
+    $(".login_check").on('click', function() {
+      alert("로그인 후 이용이 가능합니다.")
+    });
+  });
+</script>
+
+{% endblock %}
