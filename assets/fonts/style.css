@@ -1,0 +1,25 @@
+@font-face {
+   font-family: '양진체v0.9_ttf';
+   font-display: swap;
+   src: url('양진체v0.9_ttf/font.ttf');
+}
+@font-face {
+   font-family: 'Cafe24Ohsquare';
+   font-display: swap;
+   src: url('Cafe24Ohsquare/font.ttf');
+}
+@font-face {
+   font-family: 'Cafe24Ssurround';
+   font-display: swap;
+   src: url('Cafe24Ssurround/font.ttf');
+}
+@font-face {
+   font-family: 'Cafe24SsurroundAir';
+   font-display: swap;
+   src: url('Cafe24SsurroundAir/font.ttf');
+}
+@font-face {
+   font-family: 'The Jamsil 3 Regular';
+   font-display: swap;
+   src: url('The Jamsil 3 Regular/font.ttf');
+}

@@ -1,0 +1,39 @@
+{%extends 'index.html'%}
+{%block content%}
+  <section class="">
+  <div class="container-fluid">
+    <div class="row justify-content-center mt-5">
+      <div class="card col-lg-4">
+        <div class="card-body">
+          <h1 class="text-center mt-4 mb-5" style="color: black;">LOGIN</h1>
+          <form method="post" action="{%url 'app:login'%}">
+            {% csrf_token %}
+            {% include 'errors.html' %}
+            <div class="input-group mb-4">
+              <input type="text" class="form-control" name="username" id="username" placeholder="Enter User ID" value="{{form.username.value | default_if_none:''}}">
+            </div>
+
+            <div class="input-group mb-3">
+              <input type="password" class="form-control" name="password" id="password" placeholder="Enter User Password" value="{{form.password.value | default_if_none:''}}">
+            </div>
+
+            <div class="d-grid gap-1">
+              <button type="submit" class="btn btn-outline-dark mt-4">로그인</button>
+            </div>
+            <div class="d-grid gap-1 mt-3">
+              <a class="btn btn-dark" href="{%url 'app:signup'%}">처음이시면 회원가입!</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+</section><section class="display-7" style="padding: 0;align-items: center;justify-content: center;flex-wrap: wrap;    align-content: center;display: flex;position: relative;height: 0rem;"><a href="" style="flex: 1 1;height: 4rem;position: absolute;width: 100%;z-index: 1;"><img alt="" style="height: 4rem;" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a><p style="margin: 0;text-align: center;" class="display-7"></p><a style="z-index:1" href=""></a></section><script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="/assets/smoothscroll/smooth-scroll.js"></script>  <script src="/assets/ytplayer/index.js"></script>  <script src="/assets/dropdown/js/navbar-dropdown.js"></script>  <script src="/assets/mbr-tabs/mbr-tabs.js"></script>  <script src="/assets/theme/js/script.js"></script>  
+  
+  
+<div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
+   <input name="animation" type="hidden">
+
+{%endblock%}
+

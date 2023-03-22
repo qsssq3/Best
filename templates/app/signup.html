@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+{%block content%}
+  <section class="container-fluid">
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="card col-lg-4">
+          <div class="card-body">
+            <h1 class="text-center mt-2 mb-5" style="color: black;">SIGNUP</h1>
+            <form method="POST" class="post-form" action="{% url 'app:signup' %}">
+              {% csrf_token %}
+              {% include "errors.html" %}
+              <div class="input-group mb-4">
+                <input type="text" class="form-control" name="username" id="username" placeholder="ID" value="{{form.username.value | default_if_none:''}}">
+              </div>
+             <div class="input-group mb-4">
+                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name" value="{{form.first_name.value | default_if_none:''}}">
+              </div>
+              <div class="input-group mb-4">
+                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name" value="{{form.last_name.value | default_if_none:''}}">
+              </div>
+              <div class="input-group mb-4">
+                <input type="password" class="form-control" name="password1" id="password1" placeholder="Password" value="{{form.password1.value | default_if_none:''}}">
+              </div>
+              <div class="input-group mb-4">
+                <input type="password" class="form-control" name="password2" id="password2" placeholder="Re-Entry Password" value="{{form.password2.value | default_if_none:''}}">
+              </div>
+              <div class="input-group mb-4">
+                <input type="email" class="form-control" name="email" id="email" placeholder="E-mail Address" value="{{form.email.value | default_if_none:''}}">
+              </div>
+              <!-- <div class="input-group mb-4">
+                <input type="checkbox" name="is_superuser" id="is_superuser" value="{{form.is_superuser}}">
+                <p class="mt-3" style="text-decoration: none; color: black;">고용주</p>
+              </div>               -->
+              <div class="d-grid gap-1">
+                <button type="submit" class="btn btn-outline-dark mt-2">회원가입</button>
+                <button type="reset" class="btn btn-outline-dark mt-2"><a href="/">취소</a></button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+</section><section class="display-7" style="padding: 0;align-items: center;justify-content: center;flex-wrap: wrap;    align-content: center;display: flex;position: relative;height: 0rem;"><a href="" style="flex: 1 1;height: 4rem;position: absolute;width: 100%;z-index: 1;"><img alt="" style="height: 4rem;" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a><p style="margin: 0;text-align: center;" class="display-7"></p><a style="z-index:1" href=""></a></section><script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="/assets/smoothscroll/smooth-scroll.js"></script>  <script src="/assets/ytplayer/index.js"></script>  <script src="/assets/dropdown/js/navbar-dropdown.js"></script>  <script src="/assets/mbr-tabs/mbr-tabs.js"></script>  <script src="/assets/theme/js/script.js"></script>  
+  
+  
+<div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
+   <input name="animation" type="hidden">
+{%endblock%}
